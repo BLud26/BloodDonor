@@ -1,0 +1,17 @@
+<h2>Blood Donor Eligibility Check</h2>
+
+<form method="POST" action="/submitDonorForm">
+
+    <label for="firstName">First name</label>
+    <input id="firstName" type="text" name="firstName"
+           {{#donor.firstName}}value="{{donor.firstName}}"{{/donor.firstName}}>
+
+    <label for="age">Age in years</label>
+    <input id="age" type="number" name="age" value="{{donor.age}}">
+
+        <label for="weight">Weight in pounds</label>
+        <input id="weight" type="number" name="weight" value="{{donor.weight}}">
+
+    <button type="submit">Check eligibility</button>
+
+</form>
