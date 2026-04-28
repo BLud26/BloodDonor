@@ -1,17 +1,33 @@
+{{>header}}
+
 <h2>Blood Donor Eligibility Check</h2>
 
 <form method="POST" action="/submitDonorForm">
+
 
     <label for="firstName">First name</label>
     <input id="firstName" type="text" name="firstName"
            {{#donor.firstName}}value="{{donor.firstName}}"{{/donor.firstName}}>
 
+    {{#validationErrorMap.firstName}}
+        <div class="error">{{.}}</div>
+    {{/validationErrorMap.firstName}}
+
     <label for="age">Age in years</label>
     <input id="age" type="number" name="age" value="{{donor.age}}">
+
+    {{#validationErrorMap.age}}
+        <div class="error">{{.}}</div>
+    {{/validationErrorMap.age}}
 
         <label for="weight">Weight in pounds</label>
         <input id="weight" type="number" name="weight" value="{{donor.weight}}">
 
+    {{#validationErrorMap.weight}}
+        <div class="error">{{.}}</div>
+    {{/validationErrorMap.weight}}
+
     <button type="submit">Check eligibility</button>
 
 </form>
+{{>footer}}

@@ -1,8 +1,8 @@
-{{ resultMessage }}
-
+{{>header}}
+<div id="result-container">
 <h2>Results</h2>
 
-<p>Thanks for your interest in donating blood</p>
+<p>Thanks for your interest in donating blood, {{donor.firstName}}</p>
 
 <h3>Your data</h3>
 
@@ -13,4 +13,21 @@
 
 <p>{{ resultMessage}}</p>
 
-<a href="/">Return to the home page</a>
+<!--    Display ineligible reasons, if any-->
+    <ul>
+    {{#ineligibleReasons}}
+        <li>{{.}}</li>
+    {{/ineligibleReasons}}
+    </ul>
+
+<!--    if there are no ineligible reasons the user is eligible-->
+    {{^ineligibleReasons}}
+        <a href="https://www.mbc.org/donate-blood/donor-eligibility/">Continue checking eligibility</a>
+    {{/ineligibleReasons}}
+
+</div>
+
+<div id="navigation">
+    <a href="/">Return to the home page</a>
+</div>
+{{>footer}}
